@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { Message } from 'element-ui'
 import store from '@/store'
-import { getTime } from '@/utils/auth'
+import { getToken } from '@/utils/auth'
 import router from '@/router'
 
 const request = axios.create({
@@ -14,7 +14,7 @@ request.interceptors.request.use(function (config) {
   // 在发送请求之前做些什么
   const token = store.state.user.token
   if (token) {
-    const time = Date.now() - getTime()
+    const time = Date.now() - getToken()
     // 2 * 60 * 60 * 1000 = 7200000
     if (time > 7200000) {
       store.dispatch('user/logout')
@@ -33,10 +33,8 @@ request.interceptors.response.use(function (response) {
   const { data, success, message } = response.data
   // 对响应数据做点什么
   if (success) {
-    console.log(response)
     return data
   } else {
-    console.log(message)
     Message.error(message)
     return Promise.reject(message)
   }

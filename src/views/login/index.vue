@@ -18,7 +18,7 @@
         </span>
         <el-input
           ref="username"
-          v-model="loginForm.mobile"
+          v-model.trim="loginForm.mobile"
           placeholder="手机号"
           name="mobile"
           type="text"
@@ -245,8 +245,8 @@ $light_gray: #eee;
   }
 }
 .login-container {
-  background-image: url("~@/assets/common/1.jpg"); // 设置背景图片
-  // background-image: url("~@/assets/common/kf.jpg"); // 设置背景图片
+  // background-image: url("~@/assets/common/1.jpg"); // 设置背景图片
+  background-image: url("~@/assets/common/kf.jpg"); // 设置背景图片
   // background-image: url("~@/assets/common/fj1.png");
   background-position: center; // 将图片位置设置为充满整个屏幕
   background-repeat: no-repeat;

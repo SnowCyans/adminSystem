@@ -31,3 +31,10 @@ export function getUserDetailById (id) {
 
   })
 }
+
+// 获取简单列表
+export const getSimpleUserList = () => {
+  return request({
+    url: '/sys/user/simple'
+  })
+}
